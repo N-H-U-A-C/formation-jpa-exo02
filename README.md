@@ -1,4 +1,4 @@
-## Tp Billetterie
+## JPA Exo 02 (Billetterie)
 
 Créer une application permettant de gérer une billeterie.
 
