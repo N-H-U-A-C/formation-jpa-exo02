@@ -15,8 +15,8 @@ public class Event {
     private String label;
     @Column(name = "event_datetime")
     private LocalDateTime dateTime;
-    @Column(name = "event_numberplace")
-    private int numberPlace;
+    @Column(name = "event_quantityplace")
+    private int quantityPlace;
 
     @OneToOne
     @JoinColumn(name = "address_id")
@@ -25,10 +25,10 @@ public class Event {
     public Event() {
     }
 
-    public Event(String label, LocalDateTime dateTime, int numberPlace, Address address) {
+    public Event(String label, LocalDateTime dateTime, int quantityPlace, Address address) {
         this.label = label;
         this.dateTime = dateTime;
-        this.numberPlace = numberPlace;
+        this.quantityPlace = quantityPlace;
         this.address = address;
     }
 
@@ -38,7 +38,7 @@ public class Event {
                 "id=" + id +
                 ", label='" + label + '\'' +
                 ", dateTime=" + dateTime +
-                ", numberPlace=" + numberPlace +
+                ", numberPlace=" + quantityPlace +
                 ", address=" + address +
                 '}';
     }
