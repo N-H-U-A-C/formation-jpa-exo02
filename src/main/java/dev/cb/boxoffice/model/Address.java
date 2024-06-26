@@ -8,11 +8,11 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "adress_id")
+    @Column(name = "address_id")
     private int id;
-    @Column(name = "adress_streetname")
+    @Column(name = "address_streetname")
     private String streetName;
-    @Column(name = "adress_city")
+    @Column(name = "address_city")
     private String city;
 
     public Address() {
