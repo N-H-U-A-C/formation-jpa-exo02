@@ -33,6 +33,47 @@ public class Ticket {
         this.event = event;
     }
 
+    public Ticket(int id, int numberPlace, TypePlace typePlace, Client client, Event event) {
+        this(numberPlace, typePlace, client, event);
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumberPlace() {
+        return numberPlace;
+    }
+
+    public void setNumberPlace(int numberPlace) {
+        this.numberPlace = numberPlace;
+    }
+
+    public TypePlace getTypePlace() {
+        return typePlace;
+    }
+
+    public void setTypePlace(TypePlace typePlace) {
+        this.typePlace = typePlace;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
