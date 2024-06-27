@@ -18,7 +18,7 @@ public class Event {
     @Column(name = "event_quantityplace")
     private int quantityPlace;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
@@ -29,6 +29,47 @@ public class Event {
         this.label = label;
         this.dateTime = dateTime;
         this.quantityPlace = quantityPlace;
+        this.address = address;
+    }
+
+    public Event(int id, String label, LocalDateTime dateTime, int quantityPlace, Address address) {
+        this(label, dateTime, quantityPlace, address);
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public int getQuantityPlace() {
+        return quantityPlace;
+    }
+
+    public void setQuantityPlace(int quantityPlace) {
+        this.quantityPlace = quantityPlace;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
         this.address = address;
     }
 
