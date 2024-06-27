@@ -2,9 +2,15 @@ package dev.cb.boxoffice;
 
 import dev.cb.boxoffice.model.*;
 import dev.cb.boxoffice.persistence.*;
+import dev.cb.boxoffice.presentation.AddressMenu;
+import dev.cb.boxoffice.presentation.Ihm;
+import dev.cb.boxoffice.presentation.MainMenu;
+import dev.cb.boxoffice.presentation.Menu;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class Main {
@@ -15,6 +21,16 @@ public class Main {
         ClientRepository clientRepository = new ClientRepository(PostgresEntityManager.getEntityManager());
         EventRepository eventRepository = new EventRepository(PostgresEntityManager.getEntityManager());
         TicketRepository ticketRepository = new TicketRepository(PostgresEntityManager.getEntityManager());
+
+        Map<Integer, Menu> menus = new HashMap<>();
+        Menu mainMenu = new MainMenu();
+        menus.put(0, mainMenu);
+        Menu addressMenu = new AddressMenu();
+        menus.put(1, addressMenu);
+
+        Ihm.menus = menus;
+        Ihm.actualMenu = menus.get(0);
+        Ihm.run();
 
         Address address = new Address("1 rue du OK", "Montreux");
 //        addressRepository.save(address);
@@ -46,6 +62,6 @@ public class Main {
 //        ticketOptional.ifPresentOrElse(System.out::println, () -> System.out.println("Ticket not found"));
 //        System.out.println(ticketRepository.findAll());
 //        ticketRepository.update(ticket);
-        ticketRepository.delete(ticket);
+//        ticketRepository.delete(ticket);
     }
 }
