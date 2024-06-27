@@ -17,7 +17,7 @@ public class Client {
     private String lastName;
     @Column(name = "client_birthdate")
     private LocalDate birthDate;
-    @Column(name = "client_phonenumbers")
+    @Column(name = "client_phonenumber")
     private String phoneNumber;
 
     @OneToOne(cascade = CascadeType.ALL)
