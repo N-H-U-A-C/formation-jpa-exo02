@@ -10,11 +10,12 @@ public class Main {
 
         AddressRepository addressRepository = new AddressRepository(PostgresEntityManager.getEntityManager());
 
-        Address address = new Address("4 rue du Test", "Tourcoing");
+        Address address = new Address(2,"5 rue du Test", "Lille");
 
 //        addressRepository.save(address);
-
-        System.out.println(addressRepository.findById(1));;
-        System.out.println(addressRepository.findAll());;
+//        System.out.println(addressRepository.findById(1));
+//        System.out.println(addressRepository.findAll());
+//        addressRepository.update(address);
+//        addressRepository.delete(address);
     }
 }

@@ -23,6 +23,31 @@ public class Address {
         this.city = city;
     }
 
+    public Address(int id, String streetName, String city) {
+        this(streetName, city);
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Override
     public String toString() {
         return "Address{" +

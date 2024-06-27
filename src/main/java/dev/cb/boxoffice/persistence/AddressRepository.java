@@ -17,10 +17,9 @@ public class AddressRepository {
 
     public void save(Address address) {
         em.getTransaction().begin();
-
         em.persist(address);
-
         em.getTransaction().commit();
+        System.out.println("Address saved: " + address);
     }
 
     public Optional<Address> findById(int id) {
@@ -39,5 +38,31 @@ public class AddressRepository {
         return addresses;
     }
 
+    public void update(Address address) {
+        em.getTransaction().begin();
+        Address managedAddress = em.find(Address.class, address.getId());
+        if (managedAddress != null) {
+            managedAddress.setCity(address.getCity());
+            managedAddress.setStreetName(address.getStreetName());
+            em.flush();
+            em.getTransaction().commit();
+            System.out.println("Updated Address: " + managedAddress);
+        } else {
+            em.getTransaction().rollback();
+            System.out.println("Failed to update Address: " + address);
+        }
+    }
 
+    public void delete(Address address) {
+        em.getTransaction().begin();
+        Address managedAddress = em.find(Address.class, address.getId());
+        if (managedAddress != null) {
+            em.remove(managedAddress);
+            em.getTransaction().commit();
+            System.out.println("Deleted Address: " + managedAddress);
+        } else {
+            em.getTransaction().rollback();
+            System.out.println("Failed to delete Address: " + address);
+        }
+    }
 }
