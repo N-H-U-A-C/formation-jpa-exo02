@@ -19,7 +19,6 @@ public class MainMenu extends Menu {
                 2. Client CRUD
                 3. Event CRUD
                 4. Ticket CRUD
-                0. Exit
-                """;
+                0. Exit""";
     }
 }

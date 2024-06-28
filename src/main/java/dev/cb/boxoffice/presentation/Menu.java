@@ -5,21 +5,14 @@ import java.util.Map;
 public abstract class Menu {
 
     protected Map<Integer, Runnable> actions;
+    protected String entityClassName;
     protected String menuText;
-    protected String choiceText;
     protected String inputText;
     protected String inText;
     protected String outText;
 
     public Menu() {
-        this.choiceText = """
-                Please enter a choice:\s
-                """;
-        this.inText = """
-                \nWelcome to the box office app!""";
-        this.outText = """
-                \nGoodbye!
-                """;
+        this.inputText = "\nPlease enter\s";
     }
 
     protected void changeActualMenu(int key) {
@@ -30,16 +23,12 @@ public abstract class Menu {
         System.out.println(menuText);
     }
 
-    protected void displayChoiceText() {
-        System.out.println(choiceText);
+    protected void displayInputText(String inputLabel) {
+        System.out.print(this.inputText + inputLabel + ":\s");
     }
 
-    protected void displayInText() {
-        System.out.println(inText);
-    }
-
-    protected void displayOutText() {
-        System.out.println(outText);
+    protected void displayInputText(String fieldClass, String fieldLabel) {
+        System.out.print(this.inputText + fieldClass + " " + fieldLabel + ":\s");
     }
 
     public Map<Integer, Runnable> getActions() {

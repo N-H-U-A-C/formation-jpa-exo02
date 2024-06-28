@@ -25,7 +25,7 @@ public class Main {
         Map<Integer, Menu> menus = new HashMap<>();
         Menu mainMenu = new MainMenu();
         menus.put(0, mainMenu);
-        Menu addressMenu = new AddressMenu();
+        Menu addressMenu = new AddressMenu(addressRepository);
         menus.put(1, addressMenu);
 
         Ihm.menus = menus;
