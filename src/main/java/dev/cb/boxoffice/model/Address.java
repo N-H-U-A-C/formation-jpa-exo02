@@ -11,20 +11,20 @@ public class Address {
     @Column(name = "address_id")
     private int id;
     @Column(name = "address_streetname")
-    private String streetName;
+    private String street;
     @Column(name = "address_city")
     private String city;
 
     public Address() {
     }
 
-    public Address(String streetName, String city) {
-        this.streetName = streetName;
+    public Address(String street, String city) {
+        this.street = street;
         this.city = city;
     }
 
-    public Address(int id, String streetName, String city) {
-        this(streetName, city);
+    public Address(int id, String street, String city) {
+        this(street, city);
         this.id = id;
     }
 
@@ -32,12 +32,12 @@ public class Address {
         return id;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public void setStreet(String streetName) {
+        this.street = streetName;
     }
 
     public String getCity() {
@@ -52,7 +52,7 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", streetName='" + streetName + '\'' +
+                ", streetName='" + street + '\'' +
                 ", city='" + city + '\'' +
                 '}';
     }

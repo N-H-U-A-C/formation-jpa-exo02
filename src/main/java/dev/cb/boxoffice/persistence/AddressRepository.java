@@ -43,7 +43,7 @@ public class AddressRepository {
         Address managedAddress = em.find(Address.class, address.getId());
         if (managedAddress != null) {
             managedAddress.setCity(address.getCity());
-            managedAddress.setStreetName(address.getStreetName());
+            managedAddress.setStreet(address.getStreet());
             em.flush();
             em.getTransaction().commit();
             System.out.println("Updated Address: " + managedAddress);
